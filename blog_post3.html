@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikola Vracevic Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+/* Styles for blog post content */
+.blog-post {
+    background-color: #ffffff00; /* Use fully opaque white background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.blog-post h1 {
+    font-size: 2em;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 20px; /* Add margin below heading */
+}
+
+.intro {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.blog-post p {
+    font-size: 1em;
+    margin-bottom: 15px; /* Slightly reduce margin between paragraphs */
+    text-align: justify;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+}
+</style>
+</head>
+
+
+
+<body>
+
+    <div class="main-container">
+      
+        <!-- Aside -->
+        <div class="aside">
+          <!-- Nav Toggler Btn -->
+          <div class="nav-toggler">
+            <span></span>
+          </div>
+          <div class="aside-inner">
+            <!-- Logo -->
+            <div class="logo">
+              <a href="blog.html">#blog</a>
+            </div>
+            <!-- Nav -->
+            <ul class="nav">
+              <li><a href="index.html"> Home</a></li>
+              <li><a href="education.html"> Education</a></li>
+              <li><a href="skills.html"> Skills</a></li>
+              <li><a href="projects.html"> Projects</a></li>
+              <li><a href="experience.html"> Experience</a></li>
+              <li><a href="blog.html"> Blog</a></li>
+            </ul>
+            <!-- Copyright -->
+            <div style="text-align: center;">
+                <p>let's connect!</p>
+                <a href="https://github.com/vraikonen" target="_blank" style="display: inline-block; margin: 0 10px;"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/nikola-vracevic-923537155/" target="_blank" style="display: inline-block; margin: 0 10px;"><i class="fa fa-linkedin"></i></a>
+              </div>
+
+          </div>
+        </div>
+
+        <div class="main-content">
+            <section class="home section active" id="home"> 
+                <div class = "blog-post">
+
+                        <h1>Participatory Tools for Urban Nature Planning and Management</h1>
+                        <p class="intro">This is a report on one of two summer schools I have completed for Copernicus Master in Digital Earth curriculum.
+                        </p>
+                  <p> I had the privilege of participating in the Blended Intensive Programme (BIP) on Participatory Tools for Urban Nature Planning and Management, organized jointly by the University of Bucharest, Paris-Lodron University of Salzburg, and Universidad Autonoma de Madrid. This comprehensive course, took place from February to June 2023. Under the guidance of Professor Cristian Ioja, the BIP offered a diverse curriculum that combined online courses and a physical mobility program in Salzburg.</p>
+                  <p>The programme encompassed 90 hours of learning and it was divided into four online courses and a physical activity program in Salzburg. The online courses included “Urban Nature – Open Lab for Participatory Practices in Urban Areas”, “Participation in Urban Nature Planning and Management”, “GIS as a Supporting Tool for Participatory Management of Urban Nature”, and “Case Studies Related to Participatory Practices in Urban Nature Planning and Management around the World”. These courses provided a comprehensive understanding of participatory tools and their applications in urban nature planning and management.</p>
+                  <p> The highlight of the BIP was the physical activity program held in Salzburg from 19th to 23rd June 2023. This program provided us with practical experiences in applying participatory tools to real-world urban nature scenarios. The schedule included guided activities, presentations by professors and invited guests, and outdoor tours offering comparative examples that could be applied to our projects, which were the crown of all our previous study sessions. All summer school participants were assigned into one of the four project teams. I had the privilege of being part of Team One, tasked with developing a concept for promoting and maintaining public participation in urban nature planning and management in the Science City area of Salzburg. Our project involved various stages, including inventorying urban nature categories using GIS mapping, conducting stakeholder analysis through surveys and interviews, analyzing existing forms of public participation (including social media), and formulating a concept to enhance public engagement in the urban planning process.</p> 
+                  <p> Blended Intensive Course on Participatory Tools for Urban Nature Planning and Management was a transformative experience that expanded my knowledge in the field of urban sustainability. The combination of online courses and the immersive physical activity program in Salzburg enriched my understanding of participatory practices, GIS applications, and urban nature management. The opportunity to be part of the team exploring Science City area and contribute to the development of a concept for public participation was especially rewarding. I am deeply grateful for the knowledge gained during this summer school, and I am confident that the insights gained will shape my future endeavors in the field of urban planning and sustainability.</p>
+                  <p></p>           
+               
+        </div>
+            </section>
+        </div>
+            
+
+
+
+    <script>
+      const navTogglerBtn = document.querySelector('.nav-toggler'),
+        aside = document.querySelector('.aside');
+    
+    navTogglerBtn.addEventListener('click', asideSectionTogglerBtn);
+    
+    function asideSectionTogglerBtn() 
+    {
+        aside.classList.toggle('open');
+        navTogglerBtn.classList.toggle('open');
+        for (let i = 0; i < totalSection; i++) {
+            allSection[i].classList.toggle('open');
+        }
+    }
+</script>
+</body>
+</html>

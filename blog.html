@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikola Vracevic Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    .blog-posts {
+        margin-top: 50px; /* Add some top margin for spacing */
+    }
+
+    .blog-posts .container {
+        max-width: 800px; /* Adjust the max-width as needed */
+        margin: 0 auto; /* Center the container */
+    }
+
+    .blog-post {
+        background-color: #f9f9f9; /* Background color for blog posts */
+        padding: 20px; /* Add padding for spacing */
+        border-radius: 10px; /* Rounded corners */
+        margin-bottom: 20px; /* Add bottom margin for spacing between blog posts */
+    }
+
+    .blog-post h3 {
+        margin-top: 0; /* Remove top margin for h3 */
+        margin-bottom: 10px; /* Add bottom margin for spacing */
+    }
+
+    .blog-post p {
+        margin-bottom: 10px; /* Add bottom margin for spacing */
+    }
+
+    .blog-post a {
+        color: #007bff; /* Link color */
+        text-decoration: none; /* Remove underline */
+    }
+
+    .blog-post a:hover {
+        text-decoration: underline; /* Add underline on hover */
+    }
+    
+</style>
+</head>
+
+
+
+<body>
+
+    <div class="main-container">
+      
+        <!-- Aside -->
+        <div class="aside">
+          <!-- Nav Toggler Btn -->
+          <div class="nav-toggler">
+            <span></span>
+          </div>
+          <div class="aside-inner">
+            <!-- Logo -->
+            <div class="logo">
+              <a href="index.html">#blog</a>
+            </div>
+            <!-- Nav -->
+            <ul class="nav">
+              <li><a href="index.html"> Home</a></li>
+              <li><a href="education.html"> Education</a></li>
+              <li><a href="skills.html"> Skills</a></li>
+              <li><a href="projects.html"> Projects</a></li>
+              <li><a href="experience.html"> Experience</a></li>
+              <li><a href="blog.html"> Blog</a></li>
+            </ul>
+            <!-- Copyright -->
+            <div style="text-align: center;">
+                <p>let's connect!</p>
+                <a href="https://github.com/vraikonen" target="_blank" style="display: inline-block; margin: 0 10px;"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/nikola-vracevic-923537155/" target="_blank" style="display: inline-block; margin: 0 10px;"><i class="fa fa-linkedin"></i></a>
+              </div>
+
+          </div>
+        </div>
+
+        <div class="main-content">
+
+
+
+                <!-- <section class="home section active" id="home"> -->
+                
+                <!-- Portfolio Section -->
+              <section class="portfolio section active" id="portfolio">
+                <div class="container">
+                    <h3> Blog posts </h3>
+                    <p> Here you can read about my experience during my internship and my two summer schools! </p>
+                  <div class="row">
+                    <div class="section-title padd-15">
+                      <!-- <h2>Portfolio</h2> -->
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <!-- Portfolio Item -->
+                    <div class="portfolio-item padd-15" data-category="web-design">
+                      <div class="portfolio-item-inner shadow-dark">
+                        <div class="portfolio-img">
+                          <img src="images/blog.jpg" alt="Web Design">
+                        </div>
+                        <div class="portfolio-info">
+                            <h4 class="custom-link"><a href="blog_post1.html" target="_blank">Internship</a></h4>                  
+                            <!-- <div class="icon">
+                            <i class="fa fa-search"></i>
+                          </div> -->
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Portfolio Item End -->
+                    <!-- Portfolio Item -->
+                    <div class="portfolio-item padd-15" data-category="photography">
+                      <div class="portfolio-item-inner shadow-dark">
+                        <div class="portfolio-img">
+                          <img src="images/blog.jpg" alt="Photography">
+                        </div>
+                        <div class="portfolio-info">
+                          <h4 class="custom-link"><a href="blog_post2.html" target="_blank" >Summer School I</a></h4>                  
+                          <!-- <div class="icon">
+                            <i class="fa fa-search"></i>
+                          </div> -->
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Portfolio Item End -->
+                    <!-- Portfolio Item -->
+                    <div class="portfolio-item padd-15" data-category="wordpress">
+                      <div class="portfolio-item-inner shadow-dark">
+                        <div class="portfolio-img">
+                          <img src="images/blog.jpg" alt="Wordpress">
+                        </div>
+                        <div class="portfolio-info">
+                            <h4 class="custom-link"><a href="blog_post3.html" target="_blank" >Summer School II</a></h4>                  
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+    <script>
+          const navTogglerBtn = document.querySelector('.nav-toggler'),
+            aside = document.querySelector('.aside');
+        
+        navTogglerBtn.addEventListener('click', asideSectionTogglerBtn);
+        
+        function asideSectionTogglerBtn() 
+        {
+            aside.classList.toggle('open');
+            navTogglerBtn.classList.toggle('open');
+            for (let i = 0; i < totalSection; i++) {
+                allSection[i].classList.toggle('open');
+            }
+        }
+    </script>
+</body>
+</html>

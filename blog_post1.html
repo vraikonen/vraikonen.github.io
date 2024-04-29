@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikola Vracevic Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+/* Styles for blog post content */
+.blog-post {
+    background-color: #ffffff00; /* Use fully opaque white background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.blog-post h1 {
+    font-size: 2em;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 20px; /* Add margin below heading */
+}
+
+.intro {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.blog-post p {
+    font-size: 1em;
+    margin-bottom: 15px; /* Slightly reduce margin between paragraphs */
+    text-align: justify;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+}
+</style>
+</head>
+
+
+
+<body>
+
+    <div class="main-container">
+      
+        <!-- Aside -->
+        <div class="aside">
+          <!-- Nav Toggler Btn -->
+          <div class="nav-toggler">
+            <span></span>
+          </div>
+          <div class="aside-inner">
+            <!-- Logo -->
+            <div class="logo">
+              <a href="blog.html">#blog</a>
+            </div>
+            <!-- Nav -->
+            <ul class="nav">
+              <li><a href="index.html"> Home</a></li>
+              <li><a href="education.html"> Education</a></li>
+              <li><a href="skills.html"> Skills</a></li>
+              <li><a href="projects.html"> Projects</a></li>
+              <li><a href="experience.html"> Experience</a></li>
+              <li><a href="blog.html"> Blog</a></li>
+            </ul>
+            <!-- Copyright -->
+            <div style="text-align: center;">
+                <p>let's connect!</p>
+                <a href="https://github.com/vraikonen"  target="_blank" style="display: inline-block; margin: 0 10px;"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/nikola-vracevic-923537155/" target="_blank" style="display: inline-block; margin: 0 10px;"><i class="fa fa-linkedin"></i></a>
+              </div>
+
+          </div>
+        </div>
+
+        <div class="main-content">
+            <section class="home section active" id="home"> 
+                <div class = "blog-post">
+                <h1>Internship at Geo-social Analytics Lab</h1>
+                <p class="intro">I completed my internship as an integral component of the Copernicus Master in Digital Earth curriculum at the Geo-social Analytics Lab from April 15 to July 31, 2023. To learn more about my tasks and learning outcomes, you can read further, and to visit the lab’s website, please follow <a href="https://geosocial.at/">this link</a>.
+                </p>
+<p>
+</p>
+<h3> Crawling and Preprocessing Data from Different Geo-social Media Channels </h3>
+<p>
+</p>
+<p>During my internship in the Geo-social Analytics Lab, I have spent majority of my time exploring the new possibilities of data collection across many social media networks. Some of the tasks I have worked on are:</p>
+<ul>
+    <li>Getting familiar with many social media networks and data privacy and protection regulations – eventually partially utilizing crawlers for LinkedIn and Mastodon, and fully for Telegram;
+    </li>
+    <li>Using APIs provided by social media platforms to programmatically access and retrieve data in a structured manner;
+    </li>
+    <li>Employing web scraping techniques to extract data from social media platforms when APIs are limited or unavailable, ensuring compliance with ethical and legal considerations;
+    </li>
+    <li>Cleaning and preprocessing the collected data, as well as Enhancing the collected data with additional information;
+    </li>
+    <li>Organizing and storing the collected data in a secure and accessible manner in the databases;
+    </li>
+    <li>Adhering to ethical guidelines and privacy policies to ensure responsible and lawful data retrieval, particularly when dealing with personal or sensitive information;
+    </li>
+    <li>Verifying the accuracy and completeness of the collected data to ensure the reliability of subsequent analyses;
+    </li>
+    <li>Working closely with other researchers, master, PhD and postdoc students to understand specific analysis requirements and tailor data collection accordingly and
+    </li>
+    <li>Documentation: Thoroughly documenting the data collection process, including methodologies, code, and any challenges encountered, for transparency and reproducibility.
+    </li>
+</ul>
+<p>
+</p>
+<p>
+Upon the conclusion of my internship, I have acquired expertise in several domains that were not covered in my university coursework. Some of the newly acquired skills include:
+</p>
+<p>
+</p>
+
+<ul>
+    <li> Develop proficiency in writing project documentation and software documentation;
+    </li>
+    <li>Acquire proficiency in Python programming for tasks related to data collection, cleaning, and analysis;
+    </li>
+    <li>Gain hands-on experience with version control using Git and software development cycle;
+    </li>
+    <li>Develop skills in software testing;
+    </li>
+    <li>Acquire practical experience with new technologies such as NoSQL databases (MongoDB) and
+    </li>
+    <li>Communication with other team members.
+    </li>
+
+</ul>
+        </div>
+            </section>
+        </div>
+            
+
+
+
+    <script>
+      const navTogglerBtn = document.querySelector('.nav-toggler'),
+        aside = document.querySelector('.aside');
+    
+    navTogglerBtn.addEventListener('click', asideSectionTogglerBtn);
+    
+    function asideSectionTogglerBtn() 
+    {
+        aside.classList.toggle('open');
+        navTogglerBtn.classList.toggle('open');
+        for (let i = 0; i < totalSection; i++) {
+            allSection[i].classList.toggle('open');
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikola Vracevic Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href ="./libs/v6.4.3-dist/ol.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <style>
+      .grid-container {
+          display: grid;
+          grid-template-columns: 1fr; /* Use 1fr to make the grid cell take up all available space */
+          background-color: rgb(216, 237, 245);
+          height: 100vh; /* Set height to fill the viewport */
+      }
+
+      #map {
+          width: 100%;
+          height: 100%; /* Make the map fill the entire grid cell */
+      }
+      .popup-content {
+        background-color: rgba(255, 255, 255, 0.681); /* 90% opacity white background */
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(102, 102, 102, 0.2);
+    }
+    .popup-content > div {
+        line-height: 0.7; /* Adjust line height to reduce spacing */
+    }
+    .university-name {
+        color: rgb(0, 0, 0);
+        font-size: 16px; /* Change the font size as needed */
+        margin-bottom: 5px; /* Adjust the margin between elements */
+    }
+
+    .program-name {
+        font-style: italic;
+        font-size: 14px; /* Change the font size as needed */
+        margin-bottom: 0px; /* Adjust the margin between elements */
+    }
+
+    .program-years {
+        font-size: 10px; /* Change the font size as needed */
+        margin-bottom: 0px; /* Adjust the margin between elements */
+    }
+    /* Define keyframes for flying in from the right */
+@keyframes flyInFromRight {
+    0% {
+        transform: translateX(100%); /* Start position: off the screen to the right */
+    }
+    100% {
+        transform: translateX(0); /* End position: move to the original position */
+    }
+}
+
+/* Apply animation to the element within the grid container */
+.grid-container .animated-element {
+    animation: flyInFromRight 1.5s forwards; /* Animation duration and fill mode */
+    /* Add other styling for your element */
+}
+
+
+.container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space items evenly along the main axis */
+    max-width: 800px; /* Set a maximum width for the container */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+  </style>
+</head>
+
+
+
+<body>
+
+    <div class="main-container">
+        <!-- Aside -->
+        <div class="aside">
+          <!-- Nav Toggler Btn -->
+          <div class="nav-toggler">
+            <span></span>
+          </div>
+          <div class="aside-inner">
+            <!-- Logo -->
+            <div class="logo">
+              <a href="index.html">#school</a>
+            </div>
+            <!-- Nav -->
+            <ul class="nav">
+                <li><a href="index.html"> Home</a></li>
+                <li><a href="education.html"> Education</a></li>
+                <li><a href="skills.html"> Skills</a></li>
+                <li><a href="projects.html"> Projects</a></li>
+                <li><a href="experience.html"> Experience</a></li>
+                <li><a href="blog.html"> Blog</a></li>
+
+            </ul>
+            <!-- Copyright -->
+            <div style="text-align: center;">
+              <p>let's connect!</p>
+              <a href="https://github.com/vraikonen" target="_blank" style="display: inline-block; margin: 0 10px;"><i class="fa fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/nikola-vracevic-923537155/" target="_blank" style="display: inline-block; margin: 0 10px;"><i class="fa fa-linkedin"></i></a>
+            </div>
+
+        </div>
+      </div>
+
+      <div class="grid-container">
+        <!-- Map goes here -->
+        <div class="animated-element">
+          <!-- Content of the element -->
+          <div id="map"></div>
+        </div>
+        <!-- <div id="map"></div> -->
+      </div>
+
+
+
+
+    </div>
+
+    <!-- Include OpenLayers library script -->
+    <script src="./libs/v6.4.3-dist/ol.js"></script>
+
+    <!-- Include main.js -->
+    <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+    // Call the initMap function once the page has loaded
+    window.onload = initMap;
+
+    // Initialize and add the map
+    function initMap() {
+        // Specify your map configuration
+        const map = new ol.Map({
+            view: new ol.View({
+                center: [579653.7662231475, 6090142.462275695],
+                zoom: 5,
+                minZoom: 1,
+                maxZoom: 18,
+                extent: ol.proj.transformExtent([-35, 35, 45, 72], 'EPSG:4326', 'EPSG:3857')
+            }),
+            target: "map",
+
+            // You can add controls here if needed
+            controls: ol.control.defaults()
+        });
+
+        // Adding a base layer (OpenStreetMap)
+        const osmStandard = new ol.layer.Tile({
+            source: new ol.source.OSM(),
+            visible: true,
+            title: 'osmStandard'
+        });
+        const bingMaps = new ol.layer.Tile({
+        source: new ol.source.BingMaps({
+            key: "AkqWGGYpZ1eMISFHfZPH7cu_0GoWbCuyTdUdFPSTm4QfbGuT58W3LIF5Lk_fTuWr",
+            imagerySet: 'Aerial',
+        }),
+        visible: true,
+        title: 'bingMaps'
+    });
+        map.addLayer(bingMaps);
+// Add points with popups
+
+const points = [
+                {
+                    name: "University of Belgrade",
+                    lonLat: [20.4573, 44.7866], // Longitude and latitude of University of Belgrade
+                    popupContent: "<div class='popup-content'>" +
+                  "<div style='margin-bottom: 5px;'><b class='university-name'> <a href='https://www.bg.ac.rs/home/' target='_blank'> University of Belgrade </a> </b></div>" +
+                  "<div><span class='program-name'> <a href='https://gef.bg.ac.rs/en/department-of-spatial-planning/' target='_blank'> BSc Spatial Planning </a> </span></div>" +
+                  "<div><span class='program-years'>2018  -  </span><span class='program-years'>2022</span></div>" +
+                "</div>"
+                },
+                {
+                    name: "University of Salzburg",
+                    lonLat: [13.0438, 47.8095], // Longitude and latitude of University of Salzburg
+                    popupContent: "<div class='popup-content'>" +
+                  "<div style='margin-bottom: 5px;'><b class='university-name'> <a href='https://www.plus.ac.at/' target='_blank'> University of Salzburg </a> </b></div>" +
+                  "<div><span class='program-name'> <a href='https://master-cde.eu/' target='_blank'> MSc Geoinformatics and Earth Observation </a> </span></div>" +
+                  "<div><span class='program-years'>2022  -  </span><span class='program-years'>2023</span></div>" +
+                "</div>"
+                },
+                {
+                    name: "University of South Brittany (Vannes)",
+                    lonLat: [-2.7608, 47.6582], // Longitude and latitude of University of South Brittany (Vannes)
+                    popupContent: "<div class='popup-content'>" +
+                  "<div style='margin-bottom: 5px;'><b class='university-name'> <a href='https://www.univ-ubs.fr/' target='_blank'> University of South Brittany </a> </b></div>" +
+                  "<div><span class='program-name'> <a href='https://master-cde.eu/' target='_blank'> MSc GeoData Science </a> </span></div>" +
+                  "<div><span class='program-years'>2023  -  </span><span class='program-years'>2024</span></div>" +
+                "</div>"
+                }
+            ];
+
+            // Create a popup overlay for each point
+            points.forEach(point => {
+                const popup = new ol.Overlay({
+                    element: document.createElement('div'),
+                    positioning: 'top-center',
+                    offset: [0, -70],
+                    stopEvent: false
+                });
+                popup.getElement().innerHTML = point.popupContent;
+                popup.setPosition(ol.proj.fromLonLat(point.lonLat));
+                map.addOverlay(popup);
+            });
+
+            // Add actual points on the map
+            points.forEach(point => {
+                const feature = new ol.Feature({
+                    geometry: new ol.geom.Point(ol.proj.fromLonLat(point.lonLat)),
+                });
+
+                const pointStyle = new ol.style.Style({
+                    image: new ol.style.Circle({
+                        radius: 6,
+                        fill: new ol.style.Fill({ color: 'green' }),
+                        stroke: new ol.style.Stroke({
+                            color: 'black',
+                            width: 2
+                        })
+                    })
+                });
+
+                feature.setStyle(pointStyle);
+                const vectorSource = new ol.source.Vector({
+                    features: [feature]
+                });
+                const vectorLayer = new ol.layer.Vector({
+                    source: vectorSource
+                });
+                map.addLayer(vectorLayer);
+            });
+    }
+
+    const navTogglerBtn = document.querySelector('.nav-toggler'),
+            aside = document.querySelector('.aside');
+        
+        navTogglerBtn.addEventListener('click', asideSectionTogglerBtn);
+        
+        function asideSectionTogglerBtn() 
+        {
+            aside.classList.toggle('open');
+            navTogglerBtn.classList.toggle('open');
+            for (let i = 0; i < totalSection; i++) {
+                allSection[i].classList.toggle('open');
+            }
+        }
+</script>
+  </script>
+</body>
+</html>
