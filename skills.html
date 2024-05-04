@@ -33,7 +33,19 @@
         .skills-section h2 {
         margin-top: 200px; /* Adjust the margin-top value as needed */
     }
+    @media (max-width: 768px) {
+    .skill h2 {
+        font-size: 12px; /* Adjusted font size for h3 on mobile */
+    }
 
+    .skill p {
+        font-size: 10px; /* Adjusted font size for p on mobile */
+    }
+
+    .container h3{
+        font-size: 12px
+    }
+}
     </style>
 </head>
 
@@ -81,8 +93,10 @@
                           
             <!-- Skills Section -->
             <section class="skills-section">
-                
+                <h3 style="text-decoration: underline; margin-bottom: -20px;"> My expertise:</h3>
+
                 <div class="container">
+
                     <div class="skills-grid">
                         <!-- Skill 1 -->
                         <div class="skill">
@@ -104,8 +118,10 @@
                             <h3>(Cartographic) Visualization</h3>
                             <p> Proficient in creating informative cartographic visualizations using GIS software, or Python/R libraries. Skilled in OpenLayers for web cartography, and Vega-Lite for interactive visualizations. </p>
                         </div>
-                        <h3>Explore my <a href="projects.html" style="text-decoration: underline;"> projects </a> for more!</h3>
                     </div>
+                    <h1></h1>
+                <h3>Explore my <a href="projects.html" style="text-decoration: underline;"> projects </a> for more!</h3>
+
                 </div>
             </section>
             </div>
