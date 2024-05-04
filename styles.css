@@ -1449,3 +1449,16 @@ select {
     max-width: 40%; /* Ensure the image doesn't exceed its container's width */
     display: inline-block;
   }
+
+
+
+  .mobile-class {
+    display: none; /* Hide the element by default */
+}
+
+/* Media query for mobile devices (less than or equal to 768px width) */
+@media (max-width: 1068px) {
+    .mobile-class {
+        display: block; /* Show the element on mobile screens */
+    }
+}
