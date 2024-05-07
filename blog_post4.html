@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikola Vracevic Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+/* Styles for blog post content */
+.blog-post {
+    background-color: #ffffff00; /* Use fully opaque white background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.blog-post h1 {
+    font-size: 2em;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 20px; /* Add margin below heading */
+}
+
+.intro {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.blog-post p {
+    font-size: 1em;
+    margin-bottom: 15px; /* Slightly reduce margin between paragraphs */
+    text-align: justify;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+}
+</style>
+</head>
+
+
+
+<body>
+
+    <div class="main-container">
+      
+        <!-- Aside -->
+        <div class="aside">
+          <!-- Nav Toggler Btn -->
+          <div class="nav-toggler">
+            <span></span>
+          </div>
+          <div class="aside-inner">
+            <!-- Logo -->
+            <div class="logo">
+              <a href="blog.html">#blog</a>
+            </div>
+            <!-- Nav -->
+            <ul class="nav">
+              <li><a href="index.html"> Home</a></li>
+              <li><a href="education.html"> Education</a></li>
+              <li><a href="skills.html"> Skills</a></li>
+              <li><a href="projects.html"> Projects</a></li>
+              <li><a href="experience.html"> Experience</a></li>
+              <li><a href="blog.html"> Blog</a></li>
+            </ul>
+            <!-- Copyright -->
+            <div style="text-align: center;">
+                <p>let's connect!</p>
+                <a href="https://github.com/vraikonen" target="_blank" style="display: inline-block; margin: 0 10px;"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/nikola-vracevic-923537155/" target="_blank" style="display: inline-block; margin: 0 10px;"><i class="fa fa-linkedin"></i></a>
+              </div>
+
+          </div>
+        </div>
+
+        <div class="main-content">
+            <section class="home section active" id="home"> 
+                <div class = "blog-post">
+
+                        <h1>Cross-platform comparison of social media datasets</h1>
+                        <p class="intro">This blog post will soon be populated with the content related to my Master's thesis for Copernicus Master in Digital Earth programme.
+                        </p>
+                  <p></p>           
+               
+        </div>
+            </section>
+        </div>
+            
+
+
+
+    <script>
+      const navTogglerBtn = document.querySelector('.nav-toggler'),
+        aside = document.querySelector('.aside');
+    
+    navTogglerBtn.addEventListener('click', asideSectionTogglerBtn);
+    
+    function asideSectionTogglerBtn() 
+    {
+        aside.classList.toggle('open');
+        navTogglerBtn.classList.toggle('open');
+        for (let i = 0; i < totalSection; i++) {
+            allSection[i].classList.toggle('open');
+        }
+    }
+</script>
+</body>
+</html>
